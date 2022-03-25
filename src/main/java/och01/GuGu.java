@@ -12,7 +12,8 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class GuGu
  */
-@WebServlet("/GuGu")
+@WebServlet("/GuGu") // 바로 밑의 GuGu로 찾는 것이 아닌 servlet의 /GuGu로 찾음
+//@:Anotatum세팅할때 두가지 방법중 하나 (하나는 xml)
 public class GuGu extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -35,9 +36,10 @@ public class GuGu extends HttpServlet {
 		response.setContentType("text/html;charset=utf-8");  
 		PrintWriter out = response.getWriter(); // **공식 : 화면에 뿌려주고 싶은것 
 		out.println("<html><body>"); // 공식  
-		out.println("<h1>구구단</h1>");
+		out.println("<h1>구구단"+num+"단 </h1>");
 		for(int i = 1; i<=9 ; i++) {
-		out.println(num + "*" +i+ "=" +(num*i)+"<br>");
+		out.println(num + "*" +i+ "=" +(num*i));
+		//out.println("%d * %d = %d<br>",num,i(num*i));
 		}
 		out.println("</body></html>"); //공식
 		out.close();
